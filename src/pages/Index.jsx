@@ -9,6 +9,7 @@ export  function loader(){
         categoryId: 1,
         price: 410,
         priceQty: 350,
+        qtyDesc: '+ 10k',
         category:{
           name: "condimentos",
           id: 1
@@ -20,6 +21,7 @@ export  function loader(){
         categoryId: 2,
         price: 600,
         priceQty: 500,
+        qtyDesc: '+ 10k',
         category:{
           name:"confiteria" ,
           id: 2
@@ -31,6 +33,7 @@ export  function loader(){
         categoryId: 3,
         price: 750,
         priceQty: 680,
+        qtyDesc: '+ 10k',
         category:{
           name: "frutos-secos",
           id: 3
@@ -42,6 +45,7 @@ export  function loader(){
         categoryId: 4,
         price: 400,
         priceQty: 360,
+        qtyDesc: '+ 10k',
         category:{
           name: "granolas",
           id: 4
@@ -53,6 +57,7 @@ export  function loader(){
         categoryId: 5,
         price: 134,
         priceQty: 120,
+        qtyDesc: '+ 10k',
         category:{
           name: "chocolateria" ,
           id: 5

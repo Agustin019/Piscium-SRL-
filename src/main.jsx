@@ -5,7 +5,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Index , { loader as indexLoader } from './pages/Index';
 import Layout from './components/Layout';
-
+import Admin from './components/Admin';
+import IndexAdmin, { loader as indexAdminLoader } from './pages/IndexAdmin';
+import NuevoProducto, { action as nuevoProductoAction } from './components/NuevoProducto';
 
 const router = createBrowserRouter ([
 
@@ -25,10 +27,22 @@ const router = createBrowserRouter ([
       {
         path :'/productos',
         element: <p className='font-bold text-6xl text-sky-700'> Aca se van a mostrar todos los productos</p>
+      }
+    ]
+  },
+  {
+    path:'/admin',
+    element: <Admin/>,
+    children:[
+      {
+        index: true,
+        element:<IndexAdmin/>,
+        loader: indexAdminLoader
       },
       {
-        path:'/admin',
-        element: <h2 className='font-bold text-4xl mt-24 text-center text-emerald-600'>Esta parte es solamente para administradores</h2>
+        path:'/admin/nuevoproducto',
+        element: <NuevoProducto/>,
+        action: nuevoProductoAction
       }
     ]
   }
