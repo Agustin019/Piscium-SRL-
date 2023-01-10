@@ -39,7 +39,7 @@ function Index() {
         </div>
       </div>
 
-      <div className='mx-auto px-5 flex flex-col gap-y-5'>
+      <div className='mx-auto my-20 px-5 flex flex-col items-start sm:items-center gap-y-5'>
         <p className='text-2xl font-bold text-center'>Filtrar Productos</p>
         <div>
           <label
