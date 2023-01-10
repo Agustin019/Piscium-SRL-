@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import Logo from '../img/logo-tonga.jpg'
 
@@ -8,10 +8,11 @@ import Logo from '../img/logo-tonga.jpg'
 function Navbar() {
   let [open, setOpen] = useState(false);
   const location = useLocation()
+  const params = useParams()
 
   return (
     <>
-      <div className="shadow-md w-full fixed top-0  bg-black mb-20 z-10">
+      <div className="shadow-md w-full  bg-black z-10">
         <div className="md:flex items-center justify-between  md:py-4 py-6 md:px-10 px-7">
           <div className="flex items-center relative">
 
@@ -38,7 +39,7 @@ function Navbar() {
             { // Solamente se muestran en el panel de administracion
               location.pathname === '/admin' || 
               location.pathname === '/admin/nuevoproducto'||
-              location.pathname == '/admin/:productoId/editar'
+              location.pathname == `/admin/${params.productoId}/editar`
                 ? (
                   <>
                     <li className='md:ml-8 text-sm md:my-0 my-7' >

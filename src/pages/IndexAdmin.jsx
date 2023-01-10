@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, Link } from 'react-router-dom'
 
 import { obtenerProductos } from '../data/Productos';
 import Producto from '../components/Producto';
@@ -15,13 +15,14 @@ function IndexAdmin() {
 
     return (
         <>
-            <h1 className='mt-40 font-extrabold text-4xl text-center uppercase'> Piscium - srl</h1>
-            <div className='mx-auto w-52 flex justify-center py-5'>
-                <input
-                    type="button"
-                    value="Ver productos"
-                    className=' px-4 py-2 bg-sky-500 text-white font-semibold uppercase rounded-md shadow'
-                />
+            <h1 className='mt-40 font-extrabold text-4xl text-center uppercase'> Administrador</h1>
+            <div className='mx-auto  flex justify-center py-5'>
+                <Link className='text-sky-500  text-2xl ' to={'/admin/nuevoproducto'}>
+                 <span className='text-2xl text-sky-500'>
+                    <ion-icon  name="create-outline"></ion-icon>
+                 </span>
+                    Nuevo Producto
+                </Link>
             </div>
 
             {
