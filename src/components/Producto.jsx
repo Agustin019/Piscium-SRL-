@@ -1,8 +1,15 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate, Form, redirect } from 'react-router-dom'
+import { eliminarProducto } from '../data/Productos'
+
+export async function action({params}){
+  eliminarProducto(params.productoId)
+  return redirect('/admin')
+}
 
 function Producto({ producto }) {
 
   const location = useLocation()
+  const navigate = useNavigate()
 
   const { name, price, priceQty, qtyDesc, id } = producto
 
@@ -28,15 +35,26 @@ function Producto({ producto }) {
             <button
               type='button'
               className='text-sky-500 uppercase text-2xl'
+              onClick={() => navigate(`/admin/${id}/editar`)}
             >
               <ion-icon name="pencil-outline"></ion-icon>
             </button>
-            <button
-              type='button'
-              className='text-red-500 uppercase text-2xl'
-            >
-              <ion-icon name="trash-outline"></ion-icon>
-            </button>
+           <Form
+            method='post'
+            action={`/admin/${id}/eliminar`}
+            onSubmit={ (e) => {
+              if(!confirm('¿Deseas eliminar este producto?')){
+                e.preventDefault()
+              }
+            }}
+           >
+             <button
+               type='submit'
+               className='text-red-500 uppercase text-2xl'
+             >
+               <ion-icon name="trash-outline"></ion-icon>
+             </button>
+           </Form>
         </div>
         }
       </td>

@@ -1,76 +1,17 @@
 import { useLoaderData } from 'react-router-dom'
+
+import { obtenerProductos } from '../data/Productos';
 import Producto from '../components/Producto';
 
 export async function loader() {
-
-    const productos = [
-        {
-            id: 1,
-            name: 'Oregano Seleccion 1k',
-            categoryId: 1,
-            price: 410,
-            priceQty: 350,
-            qtyDesc: '+10k',
-            category: {
-                name: "condimentos",
-                id: 1
-            }
-        },
-        {
-            id: 2,
-            name: 'Rockelts Arcor 1k',
-            categoryId: 2,
-            price: 600,
-            priceQty: 500,
-            qtyDesc: '+10k',
-            category: {
-                name: "confiteria",
-                id: 2
-            }
-        },
-        {
-            id: 3,
-            name: 'Mix clasico 1k',
-            categoryId: 3,
-            price: 750,
-            priceQty: 680,
-            qtyDesc: '+10k',
-            category: {
-                name: "frutos-secos",
-                id: 3
-            }
-        },
-        {
-            id: 4,
-            name: 'Granola especial 1k',
-            categoryId: 4,
-            price: 400,
-            priceQty: 360,
-            qtyDesc: '+10k',
-            category: {
-                name: "granolas",
-                id: 4
-            }
-        },
-        {
-            id: 5,
-            name: "Mantecol 230gr",
-            categoryId: 5,
-            price: 134,
-            priceQty: 120,
-            qtyDesc: '+10k',
-            category: {
-                name: "chocolateria",
-                id: 5
-            }
-        },
-    ];
+    const productos = obtenerProductos()
     return productos
 }
 
 function IndexAdmin() {
+    // Acceso a lo que retorna el loader
     const productos = useLoaderData()
-    console.log(productos)
+
 
     return (
         <>

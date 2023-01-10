@@ -8,6 +8,9 @@ import Layout from './components/Layout';
 import Admin from './components/Admin';
 import IndexAdmin, { loader as indexAdminLoader } from './pages/IndexAdmin';
 import NuevoProducto, { action as nuevoProductoAction } from './components/NuevoProducto';
+import ErrorPage from './components/ErrorPage';
+import EditarProducto ,{ loader as editarProductoLoader, action as editarProductoAction }from './components/EditarProducto';
+import { action as eliminarProductoAction } from './components/Producto';
 
 const router = createBrowserRouter ([
 
@@ -18,15 +21,18 @@ const router = createBrowserRouter ([
       {
         index: true,
         element: <Index/>,
-        loader: indexLoader
+        loader: indexLoader,
+        errorElement:<ErrorPage/>
       },
       {
         path:'/nosotros',
-        element: <h2 className='font-bold text-4xl text-gray-700'>Nosotros</h2>
+        element: <h2 className='font-bold text-4xl text-gray-700'>Nosotros</h2>,
+        errorElement:<ErrorPage/>
       },
       {
         path :'/productos',
-        element: <p className='font-bold text-6xl text-sky-700'> Aca se van a mostrar todos los productos</p>
+        element: <p className='font-bold text-6xl text-sky-700'> Aca se van a mostrar todos los productos</p>,
+        errorElement:<ErrorPage/>
       }
     ]
   },
@@ -37,12 +43,25 @@ const router = createBrowserRouter ([
       {
         index: true,
         element:<IndexAdmin/>,
-        loader: indexAdminLoader
+        loader: indexAdminLoader,
+        errorElement:<ErrorPage/>
       },
       {
         path:'/admin/nuevoproducto',
         element: <NuevoProducto/>,
-        action: nuevoProductoAction
+        action: nuevoProductoAction,
+        errorElement:<ErrorPage/>
+      },
+      {
+        path:'/admin/:productoId/editar',
+        element: <EditarProducto/>,
+        loader: editarProductoLoader,
+        action: editarProductoAction,
+        errorElement:<ErrorPage/>
+      },
+      {
+        path:'/admin/:productoId/eliminar',
+        action:eliminarProductoAction
       }
     ]
   }

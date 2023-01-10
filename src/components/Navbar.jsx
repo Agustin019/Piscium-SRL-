@@ -36,7 +36,9 @@ function Navbar() {
 
 
             { // Solamente se muestran en el panel de administracion
-              location.pathname === '/admin' || location.pathname === '/admin/nuevoproducto'
+              location.pathname === '/admin' || 
+              location.pathname === '/admin/nuevoproducto'||
+              location.pathname == '/admin/:productoId/editar'
                 ? (
                   <>
                     <li className='md:ml-8 text-sm md:my-0 my-7' >

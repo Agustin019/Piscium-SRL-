@@ -1,115 +1,88 @@
 {
-    "productos":[
-        {
-            "id": 1,
-            "idCategory": 1,
-            "name": "Granola",
-            "price":199,
-            "priceQty":169,
-            "category":{
-                "name":"Mix",
-                "id": 1
-            }
-        },
-        {
-            "id": 2,
-            "idCategory": 1,
-            "name": "Granola Premium",
-            "price":199,
-            "priceQty":169,
-            "category":{
-                "name":"Mix",
-                "id": 1
-            }
-        },
-        {
-            "id": 3,
-            "idCategory": 1,
-            "name": "Granola Tropical",
-            "price":199,
-            "priceQty":169,
-            "category":{
-                "name":"Mix",
-                "id": 1
-            }
-        },
-        {
-            "id": 4,
-            "idCategory": 1,
-            "name": "Granola Especial",
-            "price":199,
-            "priceQty":169,
-            "category":{
-                "name":"Mix",
-                "id": 1
-            }
-        },
-        {
-            "id": 5,
-            "idCategory": 2,
-            "name": "oregano",
-            "price":199,
-            "priceQty":169,
-            "category":{
-                "name":"condimentos",
-                "id": 2
-            }
-        },
-        {
-            "id": 6,
-            "idCategory": 2,
-            "name": "oregano seleccion",
-            "price":199,
-            "priceQty":169,
-            "category":{
-                "name":"condimentos",
-                "id": 2
-            }
-        },
-        {
-            "id": 7,
-            "idCategory": 2,
-            "name": "pimenton dulce extra",
-            "price":199,
-            "priceQty":169,
-            "category":{
-                "name":"condimentos",
-                "id": 2
-            }
-        },
-        {
-            "id": 8,
-            "idCategory": 2,
-            "name": "pimenton dulce seleccion",
-            "price":199,
-            "priceQty":169,
-            "category":{
-                "name":"condimentos",
-                "id": 2
-            }
-        },
-        {
-            "id": 9,
-            "idCategory": 2,
-            "name": "comino",
-            "price":199,
-            "priceQty":169,
-            "category":{
-                "name":"condimentos",
-                "id": 2
-            }
-        },
-        {
-            "id": 10,
-            "idCategory": 2,
-            "name": "comino seleccion",
-            "price":199,
-            "priceQty":169,
-            "category":{
-                "name":"condimentos",
-                "id": 2
-            }
-        }
-    ]
+  "productos": [
+    {
+      "id": 1,
+      "idCategory": 1,
+      "name": "Granola",
+      "price": 199,
+      "priceQty": 169,
+      "qtyDesc": "+10k",
+      "category": {
+        "name": "Mix",
+        "id": 1
+      }
+    },
+    {
+      "id": 2,
+      "idCategory": 1,
+      "name": "Granola Premium",
+      "price": 199,
+      "priceQty": 169,
+      "qtyDesc": "+10k",
+      "category": {
+        "name": "Mix",
+        "id": 1
+      }
+    },
+    {
+      "id": 3,
+      "idCategory": 1,
+      "name": "Granola Tropical",
+      "price": 199,
+      "priceQty": 169,
+      "qtyDesc": "+10k",
+      "category": {
+        "name": "Mix",
+        "id": 1
+      }
+    },
+    {
+      "id": 4,
+      "idCategory": 1,
+      "name": "Granola Especial",
+      "price": 199,
+      "priceQty": 169,
+      "qtyDesc": "+10k",
+      "category": {
+        "name": "Mix",
+        "id": 1
+      }
+    },
+    {
+      "id": 6,
+      "idCategory": 2,
+      "name": "oregano seleccion",
+      "price": 199,
+      "priceQty": 169,
+      "qtyDesc": "+10k",
+      "category": {
+        "name": "condimentos",
+        "id": 2
+      }
+    },
+    {
+      "id": 7,
+      "idCategory": 2,
+      "name": "pimenton dulce extra",
+      "price": 199,
+      "priceQty": 169,
+      "qtyDesc": "+10k",
+      "category": {
+        "name": "condimentos",
+        "id": 2
+      }
+    },
+    {
+      "id": 8,
+      "idCategory": 2,
+      "name": "pimenton dulce seleccion",
+      "price": 199,
+      "priceQty": 169,
+      "qtyDesc": "+10k",
+      "category": {
+        "name": "condimentos",
+        "id": 2
+      }
+    }
+  ]
 }
-
