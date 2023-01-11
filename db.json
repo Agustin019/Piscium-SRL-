@@ -1,60 +1,28 @@
 {
   "productos": [
     {
-      "name": "Granola (actualizada)",
-      "price": "199",
+      "name": "Granola Especial",
+      "price": "428",
       "priceQty": "169",
       "qtyDesc": "+10k",
       "category": "granolas",
-      "id": 1
+      "id": 4
     },
     {
-      "id": 4,
-      "idCategory": 1,
-      "name": "Granola Especial",
-      "price": 199,
-      "priceQty": 169,
-      "qtyDesc": "+10k",
-      "category": {
-        "name": "Mix",
-        "id": 1
-      }
-    },
-    {
-      "id": 6,
-      "idCategory": 2,
       "name": "oregano seleccion",
-      "price": 199,
-      "priceQty": 169,
+      "price": "199",
+      "priceQty": "169",
       "qtyDesc": "+10k",
-      "category": {
-        "name": "condimentos",
-        "id": 2
-      }
+      "category": "Condimentos",
+      "id": 6
     },
     {
-      "id": 7,
-      "idCategory": 2,
       "name": "pimenton dulce extra",
-      "price": 199,
-      "priceQty": 169,
+      "price": "199",
+      "priceQty": "169",
       "qtyDesc": "+10k",
-      "category": {
-        "name": "condimentos",
-        "id": 2
-      }
-    },
-    {
-      "id": 8,
-      "idCategory": 2,
-      "name": "pimenton dulce seleccion",
-      "price": 199,
-      "priceQty": 169,
-      "qtyDesc": "+10k",
-      "category": {
-        "name": "condimentos",
-        "id": 2
-      }
+      "category": "Condimentos",
+      "id": 7
     },
     {
       "name": "Granola especial",

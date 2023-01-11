@@ -10,18 +10,13 @@ export function loader() {
 }
 
 function Index() {
+
   const productos = useLoaderData()
-  const [filtrarProductos, setFiltrarProductos] = useState([])
+  const [filtrarProductos, setFiltrarProductos] = useState('')
 
   const filtrar = productos.filter(producto => (
-    producto.category === 'granolas'
+    producto.category === filtrarProductos
   ))
-
-  useEffect(() => {
-
-  }, [filtrarProductos])
-
-  console.log(filtrar)
 
   return (
     <>
@@ -50,7 +45,7 @@ function Index() {
             name="category"
             id="category"
             className='w-full py-3'
-          
+            onChange={(e) => setFiltrarProductos(e.target.value)}
           >
             <option value="">Todas las Categorias</option>
             <option value="Condimentos">Condimentos</option>
@@ -70,12 +65,41 @@ function Index() {
           </select>
         </div>
 
-        <button className='py-2 px-4 text-white uppercase font-bold bg-sky-500 '>
-          Filtrar          
-        </button>
+        <p className='text-2xl font-bold '>
+          {filtrarProductos}
+        </p>
       </div>
+      <table className='w-full bg-white shadow mt-5 table-auto'>
+        <thead className='bg-blue-800 text-white h-10'>
+          <tr className=''>
+            <th className=''>Nombre</th>
+            <th className=''>Precio</th>
+            <th className=''>X Mayor</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            filtrarProductos === ''
+              ?
+              (productos.map(producto => (
+                <Producto
+                  key={producto.id}
+                  producto={producto}
+                />
+              )))
+              : (filtrar.map(producto => (
+                <Producto
+                  key={producto.id}
+                  producto={producto}
+                />
+              )))
+          }
+        </tbody>
+      </table>
 
-      {
+
+
+      {/* {
         productos.length ?
           (<table className='w-full bg-white shadow mt-5 table-auto'>
             <thead className='bg-blue-800 text-white h-10'>
@@ -96,7 +120,7 @@ function Index() {
           </table>
           ) : (
             <h2 className=' font-bold text-xl text-center'> No hay productos en esta categoria</h2>
-          )}
+          )} */}
 
     </>
   )
