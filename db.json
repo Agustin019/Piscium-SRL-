@@ -31,6 +31,30 @@
       "qtyDesc": "+10k",
       "category": "granolas",
       "id": 9
+    },
+    {
+      "name": "Pimienta blanca Seleccion",
+      "price": "450",
+      "priceQty": "420",
+      "qtyDesc": "+25k",
+      "category": "Frutos Secos",
+      "id": 10
+    },
+    {
+      "name": "Cerveza Brahama 1L",
+      "price": "470",
+      "priceQty": "450",
+      "qtyDesc": "+12 uni.",
+      "category": "Bebidas Alcoholicas",
+      "id": 11
+    },
+    {
+      "name": "Jugo de Arandanos 1,5L",
+      "price": "250",
+      "priceQty": "229",
+      "qtyDesc": "+12 uni.",
+      "category": "Jugos de Arandanos",
+      "id": 12
     }
   ]
 }
