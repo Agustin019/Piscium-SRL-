@@ -55,6 +55,22 @@
       "qtyDesc": "+12 uni.",
       "category": "Jugos de Arandanos",
       "id": 12
+    },
+    {
+      "name": "Oregno hojas comun",
+      "price": "500",
+      "priceQty": "450",
+      "qtyDesc": "+13k",
+      "category": "Condimentos",
+      "id": 13
+    },
+    {
+      "name": "azucar mazcabo",
+      "price": "300",
+      "priceQty": "3434",
+      "qtyDesc": "5k",
+      "category": "Semillas",
+      "id": 14
     }
   ]
 }
