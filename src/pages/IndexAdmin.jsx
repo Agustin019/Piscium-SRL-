@@ -1,21 +1,41 @@
-import { useLoaderData, Link } from 'react-router-dom'
-import { useState } from 'react';
+import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import { collection, getDocs, getDoc, deleteDoc, doc } from 'firebase/firestore'
+import { async } from '@firebase/util'
 
-import { obtenerProductos } from '../data/Productos';
 import Producto from '../components/Producto';
+import { db } from "../data/firebaseconfig";
 
-export async function loader() {
-    const productos = obtenerProductos()
-    return productos
-}
+
 
 function IndexAdmin() {
 
-    const productos = useLoaderData()
     const [filtrarProductos, setFiltrarProductos] = useState('')
+    const [productos, setProductos] = useState([])
+
+    const productosCollection = collection(db, 'productos')
+
+    const obtenerProductos = async () => {
+        const data = await getDocs(productosCollection)
+
+        setProductos(
+            data.docs.map(doc => ({ ...doc.data(), id: doc.id }))
+        )
+        console.log(productos)
+    }
+
+    const eliminarProducto = async (id) => {
+        const productDoc = doc(db, 'productos',id)
+        await deleteDoc(productDoc)
+        obtenerProductos()
+    }
+
+    useEffect(() => {
+        obtenerProductos()
+    }, [])
 
     const filtrar = productos.filter(producto => (
-        producto.category === filtrarProductos
+        producto.categoria === filtrarProductos
     ))
 
 
@@ -82,12 +102,14 @@ function IndexAdmin() {
                                 <Producto
                                     key={producto.id}
                                     producto={producto}
+                                    eliminarProducto={eliminarProducto}
                                 />
                             )))
                             : (filtrar.map(producto => (
                                 <Producto
                                     key={producto.id}
                                     producto={producto}
+                                    eliminarProducto={eliminarProducto}
                                 />
                             )))
                     }

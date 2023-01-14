@@ -2,7 +2,7 @@ import React from 'react'
 
 function Formulario({producto}) {
 
-    // Para reutilizar el formulario se usa un "optional chaining" para que en caso de que exista "producto", pueda acceder a su propiedad
+    // Para reutilizar el formulario se usa un "optional chaining" para que en caso de que "producto" tenga algo, pueda acceder a su propiedad
     return (
 
 

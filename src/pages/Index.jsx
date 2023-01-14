@@ -1,21 +1,35 @@
-import { useLoaderData } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 
-import { obtenerProductos } from '../data/Productos'
 import Producto from '../components/Producto';
+import { Link } from 'react-router-dom';
+import { collection, getDocs, getDoc, deleteDoc } from 'firebase/firestore'
+import { async } from '@firebase/util'
 
-export function loader() {
-  const productos = obtenerProductos()
-  return productos
-}
+import { db } from "../data/firebaseconfig";
+
 
 function Index() {
 
-  const productos = useLoaderData()
+  const [productos, setProductos] = useState([])
   const [filtrarProductos, setFiltrarProductos] = useState('')
 
+  const productosCollection = collection(db, 'productos')
+
+  const obtenerProductos = async () => {
+    const data = await getDocs(productosCollection)
+
+    setProductos(
+      data.docs.map(doc => ({...doc.data(), id:doc.id}))
+    )
+    console.log(productos)
+  }
+
+  useEffect(()=>{
+    obtenerProductos()
+  },[])
+
   const filtrar = productos.filter(producto => (
-    producto.category === filtrarProductos
+    producto.categoria === filtrarProductos
   ))
 
   return (
@@ -39,11 +53,11 @@ function Index() {
         <div>
           <label
             className="text-gray-800 "
-            htmlFor="category"
+            htmlFor="categoria"
           >Seleccionar categoria:</label>
           <select
-            name="category"
-            id="category"
+            name="categoria"
+            id="categoria"
             className='w-full py-3'
             onChange={(e) => setFiltrarProductos(e.target.value)}
           >

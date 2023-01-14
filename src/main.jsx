@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import Index , { loader as indexLoader } from './pages/Index';
+import Index , { /*loader as indexLoader */} from './pages/Index';
 import Layout from './components/Layout';
 import Admin from './components/Admin';
-import IndexAdmin, { loader as indexAdminLoader } from './pages/IndexAdmin';
+import IndexAdmin, { /*loader as indexAdminLoader*/} from './pages/IndexAdmin';
 import NuevoProducto, { action as nuevoProductoAction } from './components/NuevoProducto';
 import ErrorPage from './components/ErrorPage';
 import EditarProducto ,{ loader as editarProductoLoader, action as editarProductoAction }from './components/EditarProducto';
@@ -21,7 +21,7 @@ const router = createBrowserRouter ([
       {
         index: true,
         element: <Index/>,
-        loader: indexLoader,
+        //loader: indexLoader,
         errorElement:<ErrorPage/>
       },
       {
@@ -43,7 +43,7 @@ const router = createBrowserRouter ([
       {
         index: true,
         element:<IndexAdmin/>,
-        loader: indexAdminLoader,
+        // loader: indexAdminLoader,
         errorElement:<ErrorPage/>
       },
       {
