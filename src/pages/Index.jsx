@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore'
-import { db } from "../data/firebaseconfig";
+import { db } from "../data/firebaseConfig";
 import { async } from '@firebase/util'
 
 import Producto from '../components/Producto';
