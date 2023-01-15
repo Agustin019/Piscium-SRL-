@@ -3,7 +3,6 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore'
 
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyD0gaYtzA46rzwzCZjcx7JkfC4Rz6CXD7w",
   authDomain: "piscium-srl.firebaseapp.com",
