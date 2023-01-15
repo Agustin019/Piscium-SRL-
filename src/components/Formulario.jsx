@@ -57,7 +57,7 @@ function Formulario({producto}) {
                 >Precio info:</label>
                 <input
                     id="aclaracion"
-                    type="tel"
+                    type="text"
                     className="mt-2 block w-full p-3 bg-gray-50"
                     placeholder="Informacion del Precio por Mayor"
                     name="aclaracion"
