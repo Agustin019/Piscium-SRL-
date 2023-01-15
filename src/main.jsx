@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import Index , { loader as indexLoader } from './pages/Index';
+import Index from './pages/Index';
 import Layout from './components/Layout';
 import Admin from './components/Admin';
-import IndexAdmin, { loader as indexAdminLoader } from './pages/IndexAdmin';
+import IndexAdmin from './pages/IndexAdmin';
 import NuevoProducto, { action as nuevoProductoAction } from './components/NuevoProducto';
 import ErrorPage from './components/ErrorPage';
 import EditarProducto ,{ loader as editarProductoLoader, action as editarProductoAction }from './components/EditarProducto';
-import { action as eliminarProductoAction } from './components/Producto';
+
 
 const router = createBrowserRouter ([
 
@@ -21,7 +21,6 @@ const router = createBrowserRouter ([
       {
         index: true,
         element: <Index/>,
-        loader: indexLoader,
         errorElement:<ErrorPage/>
       },
       {
@@ -43,7 +42,6 @@ const router = createBrowserRouter ([
       {
         index: true,
         element:<IndexAdmin/>,
-        loader: indexAdminLoader,
         errorElement:<ErrorPage/>
       },
       {
@@ -58,10 +56,6 @@ const router = createBrowserRouter ([
         loader: editarProductoLoader,
         action: editarProductoAction,
         errorElement:<ErrorPage/>
-      },
-      {
-        path:'/admin/:productoId/eliminar',
-        action:eliminarProductoAction
       }
     ]
   }

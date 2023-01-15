@@ -1,21 +1,33 @@
-import { useLoaderData } from 'react-router-dom'
 import { useEffect, useState } from 'react';
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from "../data/firebaseconfig";
 
-import { obtenerProductos } from '../data/Productos'
 import Producto from '../components/Producto';
 
-export function loader() {
-  const productos = obtenerProductos()
-  return productos
-}
+
+
 
 function Index() {
 
-  const productos = useLoaderData()
+  const [productos, setProductos] = useState([])
   const [filtrarProductos, setFiltrarProductos] = useState('')
 
+  const productosCollection = collection(db, 'productos')
+
+  const obtenerProductos = async () => {
+    const data = await getDocs(productosCollection)
+
+    setProductos(
+      data.docs.map(doc => ({ ...doc.data(), id: doc.id }))
+    )
+  }
+
+  useEffect(() => {
+    obtenerProductos()
+  }, [])
+
   const filtrar = productos.filter(producto => (
-    producto.category === filtrarProductos
+    producto.categoria === filtrarProductos
   ))
 
   return (
@@ -39,11 +51,11 @@ function Index() {
         <div>
           <label
             className="text-gray-800 "
-            htmlFor="category"
+            htmlFor="categoria"
           >Seleccionar categoria:</label>
           <select
-            name="category"
-            id="category"
+            name="categoria"
+            id="categoria"
             className='w-full py-3'
             onChange={(e) => setFiltrarProductos(e.target.value)}
           >
@@ -96,31 +108,6 @@ function Index() {
           }
         </tbody>
       </table>
-
-
-
-      {/* {
-        productos.length ?
-          (<table className='w-full bg-white shadow mt-5 table-auto'>
-            <thead className='bg-blue-800 text-white h-10'>
-              <tr className=''>
-                <th className=''>Nombre</th>
-                <th className=''>Precio</th>
-                <th className=''>X Mayor</th>
-              </tr>
-            </thead>
-            <tbody>
-              {productos.map(producto => (
-                <Producto
-                  key={producto.id}
-                  producto={producto}
-                />
-              ))}
-            </tbody>
-          </table>
-          ) : (
-            <h2 className=' font-bold text-xl text-center'> No hay productos en esta categoria</h2>
-          )} */}
 
     </>
   )

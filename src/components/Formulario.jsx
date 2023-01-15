@@ -1,8 +1,7 @@
 import React from 'react'
 
 function Formulario({producto}) {
-
-    // Para reutilizar el formulario se usa un "optional chaining" para que en caso de que exista "producto", pueda acceder a su propiedad
+    // Para reutilizar el formulario se usa un "optional chaining" para que en caso de que "producto" tenga algo, pueda acceder a su propiedad
     return (
 
 
@@ -10,15 +9,15 @@ function Formulario({producto}) {
             <div className="mb-4">
                 <label
                     className="text-gray-800"
-                    htmlFor="name"
+                    htmlFor="nombre"
                 >Nombre:</label>
                 <input
-                    id="name"
+                    id="nombre"
                     type="text"
                     className="mt-2 block w-full p-3 bg-gray-50"
                     placeholder="Nombre del Producto"
-                    name="name"
-                    defaultValue={producto?.name}
+                    name="nombre"
+                    defaultValue={producto?.nombre}
                 />
             </div>
             <div className="mb-4">
@@ -27,54 +26,54 @@ function Formulario({producto}) {
                     htmlFor="price"
                 >Precio:</label>
                 <input
-                    id="price"
+                    id="precio"
                     type="number"
                     className="mt-2 block w-full p-3 bg-gray-50"
                     placeholder="Precio del Producto"
-                    name="price"
-                    defaultValue={producto?.price}
+                    name="precio"
+                    defaultValue={producto?.precio}
                 />
             </div>
 
             <div className="mb-4">
                 <label
                     className="text-gray-800"
-                    htmlFor="priceQty"
+                    htmlFor="precioxmayor"
                 >Precio por mayor:</label>
                 <input
-                    id="priceQty"
+                    id="precioxmayor"
                     type="number"
                     className="mt-2 block w-full p-3 bg-gray-50"
                     placeholder="Precio por Mayor del Producto"
-                    name="priceQty"
-                    defaultValue={producto?.priceQty}
+                    name="precioxmayor"
+                    defaultValue={producto?.precioxmayor}
                 />
             </div>
 
             <div className="mb-4">
                 <label
                     className="text-gray-800"
-                    htmlFor="qtyDesc"
+                    htmlFor="aclaracion"
                 >Precio info:</label>
                 <input
-                    id="qtyDesc"
+                    id="aclaracion"
                     type="tel"
                     className="mt-2 block w-full p-3 bg-gray-50"
                     placeholder="Informacion del Precio por Mayor"
-                    name="qtyDesc"
-                    defaultValue={producto?.qtyDesc}
+                    name="aclaracion"
+                    defaultValue={producto?.aclaracion}
                 />
             </div>
             <div className="mb-4">
                 <label
                     className="text-gray-800 "
-                    htmlFor="category"
+                    htmlFor="categoria"
                 >Seleccionar categoria:</label>
                 <select
-                    name="category"
-                    id="category"
+                    name="categoria"
+                    id="categoria"
                     className='w-full py-3'
-                    defaultValue={producto?.category}
+                    defaultValue={producto?.categoria}
                 >
                     <option value="">Seleccione la Categoria</option>
                     <option value="Condimentos">Condimentos</option>
