@@ -1,6 +1,6 @@
 import { Form, useActionData, useNavigate, useLoaderData, redirect } from 'react-router-dom'
 import { getDoc, updateDoc, doc  } from 'firebase/firestore'
-import { db } from '../data/firebaseconfig'
+import { db } from '../data/firebaseConfig'
 
 import Formulario from './Formulario'
 import Error from './Error'
