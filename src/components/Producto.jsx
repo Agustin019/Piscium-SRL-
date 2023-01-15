@@ -1,10 +1,4 @@
-import { useLocation, useNavigate, Form, redirect } from 'react-router-dom'
-//mport { eliminarProducto } from '../data/Productos'
-
-export async function action({params}){
-  eliminarProducto(params.productoId)
-  return redirect('/admin')
-}
+import { useLocation, useNavigate} from 'react-router-dom'
 
 function Producto({ producto, eliminarProducto }) {
 
@@ -28,34 +22,34 @@ function Producto({ producto, eliminarProducto }) {
           <p className='text-sm sm:text-lg font-semibold text-center'>({aclaracion})</p>
         </div>
         {
-            // Solamente se muestra en el panel de administracion
-            location.pathname === '/admin' &&
-        
-            <div className='flex flex-col'>
-              <button
-                type='button'
-                className='text-sky-500 uppercase text-2xl'
-                onClick={() => navigate(`/admin/${id}/editar`)}
-              >
-                <ion-icon name="pencil-outline"></ion-icon>
-              </button>
+          // Solamente se muestra en el panel de administracion
+          location.pathname === '/admin' &&
 
-               <button
-                 type='submit'
-                 className='text-red-500 uppercase text-2xl'
-                 onClick={() => { eliminarProducto(producto.id)}}
-               >
-                 <ion-icon name="trash-outline"></ion-icon>
-               </button>
+          <div className='flex flex-col'>
+            <button
+              type='button'
+              className='text-sky-500 uppercase text-2xl'
+              onClick={() => navigate(`/admin/${id}/editar`)}
+            >
+              <ion-icon name="pencil-outline"></ion-icon>
+            </button>
+
+            <button
+              type='submit'
+              className='text-red-500 uppercase text-2xl'
+              onClick={(e) => {
+                if (confirm('¿Deseas eliminar este producto?')) {
+                  e.preventDefault()
+                  eliminarProducto(id)
+                }
+              }}
+            >
+              <ion-icon name="trash-outline"></ion-icon>
+            </button>
 
           </div>
-          }
+        }
       </td>
-
-         
-
-      
-
     </tr>
   )
 }

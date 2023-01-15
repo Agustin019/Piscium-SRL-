@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
-import { collection, getDocs, getDoc, deleteDoc, doc } from 'firebase/firestore'
-import { async } from '@firebase/util'
+import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore'
+import { db } from "../data/firebaseconfig";
 
 import Producto from '../components/Producto';
-import { db } from "../data/firebaseconfig";
+
 
 
 
 function IndexAdmin() {
-
+    // Hooks
     const [filtrarProductos, setFiltrarProductos] = useState('')
     const [productos, setProductos] = useState([])
 
+    // DB Collection
     const productosCollection = collection(db, 'productos')
 
     const obtenerProductos = async () => {
@@ -21,7 +22,6 @@ function IndexAdmin() {
         setProductos(
             data.docs.map(doc => ({ ...doc.data(), id: doc.id }))
         )
-        console.log(productos)
     }
 
     const eliminarProducto = async (id) => {

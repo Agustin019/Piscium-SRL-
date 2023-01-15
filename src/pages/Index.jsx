@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from "../data/firebaseconfig";
 
 import Producto from '../components/Producto';
-import { Link } from 'react-router-dom';
-import { collection, getDocs, getDoc, deleteDoc } from 'firebase/firestore'
-import { async } from '@firebase/util'
 
-import { db } from "../data/firebaseconfig";
+
 
 
 function Index() {
@@ -19,14 +18,13 @@ function Index() {
     const data = await getDocs(productosCollection)
 
     setProductos(
-      data.docs.map(doc => ({...doc.data(), id:doc.id}))
+      data.docs.map(doc => ({ ...doc.data(), id: doc.id }))
     )
-    console.log(productos)
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     obtenerProductos()
-  },[])
+  }, [])
 
   const filtrar = productos.filter(producto => (
     producto.categoria === filtrarProductos
@@ -110,31 +108,6 @@ function Index() {
           }
         </tbody>
       </table>
-
-
-
-      {/* {
-        productos.length ?
-          (<table className='w-full bg-white shadow mt-5 table-auto'>
-            <thead className='bg-blue-800 text-white h-10'>
-              <tr className=''>
-                <th className=''>Nombre</th>
-                <th className=''>Precio</th>
-                <th className=''>X Mayor</th>
-              </tr>
-            </thead>
-            <tbody>
-              {productos.map(producto => (
-                <Producto
-                  key={producto.id}
-                  producto={producto}
-                />
-              ))}
-            </tbody>
-          </table>
-          ) : (
-            <h2 className=' font-bold text-xl text-center'> No hay productos en esta categoria</h2>
-          )} */}
 
     </>
   )

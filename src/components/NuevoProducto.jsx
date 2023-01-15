@@ -1,8 +1,11 @@
 import { useNavigate, Form, useActionData, redirect } from 'react-router-dom'
+import { collection, addDoc  } from 'firebase/firestore'
+import { db } from '../data/firebaseconfig'
 
 import Formulario from './Formulario'
 import Error from './Error'
-import { agregarProducto } from '../data/Productos'
+
+
 
 export async function action({request}){
 
@@ -21,7 +24,16 @@ export async function action({request}){
         return errores
     }
 
-    await agregarProducto(datos)
+    // Agregar a firebase
+    const productsCollection = collection(db, 'productos')
+    await addDoc(productsCollection,{
+        nombre: datos.nombre,
+        precio: datos.precio,
+        precioxmayor: datos.precioxmayor,
+        aclaracion: datos.aclaracion,
+        categoria: datos.categoria
+    })
+
     return redirect('/admin')
 }
 

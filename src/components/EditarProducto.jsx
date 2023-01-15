@@ -1,7 +1,8 @@
 import { Form, useActionData, useNavigate, useLoaderData, redirect } from 'react-router-dom'
+import { getDoc, updateDoc, doc  } from 'firebase/firestore'
+import { db } from '../data/firebaseconfig'
 
 import Formulario from './Formulario'
-import { obtenerProducto, actualizarProducto } from "../data/Productos"
 import Error from './Error'
 
 export async function action({ request, params }) {
@@ -20,13 +21,23 @@ export async function action({ request, params }) {
         return errores
     }
 
-    await actualizarProducto(params.productoId, datos)
+    // Actualizar producto en firebase
+    const productos = doc(db, 'productos', params.productoId)
+    const dataCampos = {
+        nombre: datos.nombre,
+        precio: datos.precio,
+        precioxmayor: datos.precioxmayor,
+        aclaracion: datos.aclaracion,
+        categoria: datos.categoria
+    }
+    await updateDoc(productos, dataCampos)
     return redirect('/admin')
 }
 
 
 export async function loader({ params }) {
-    const producto = await obtenerProducto(params.productoId)
+    const obtenerProducto = doc(db, 'productos', params.productoId)
+    const producto = await getDoc(obtenerProducto)
 
     // Mensaje de error en caso de no encontrar el producto
     if (Object.values(producto).length === 0) {
@@ -35,7 +46,7 @@ export async function loader({ params }) {
             statusText: 'No hay resultados'
         })
     }
-    return producto
+    return producto.data()
 }
 
 function EditarProducto() {
@@ -43,7 +54,6 @@ function EditarProducto() {
     const producto = useLoaderData()
     const errores = useActionData()
     const navigate = useNavigate()
-    console.log(producto)
 
     return (
         <>
