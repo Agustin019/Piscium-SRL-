@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from "../data/firebaseConfig";
 import { async } from '@firebase/util'
+import { Link } from 'react-router-dom';
 
 import Producto from '../components/Producto';
 
@@ -45,6 +46,9 @@ function Index() {
             />
           </div>
         </div>
+      </div>
+      <div className='fixed bottom-0 right-0 m-5'>
+        <a href='https://wa.me/5492236895769'><img src="https://i.ibb.co/mN1XmjG/icon-wsp.png" alt="Imagen Icono de whatsApp" /></a>
       </div>
 
       <div className='mx-auto my-20 px-5 flex flex-col items-start sm:items-center gap-y-5'>
