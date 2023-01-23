@@ -1,12 +1,10 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore'
 import { db } from "../data/firebaseConfig";
-
+//import { useAuth0 } from '@auth0/auth0-react'
+ 
 import Producto from '../components/Producto';
-
-
-
 
 function IndexAdmin() {
     // Hooks
@@ -38,9 +36,11 @@ function IndexAdmin() {
         producto.categoria === filtrarProductos
     ))
 
-
+        const location = useLocation()
+       // const { loginWithRedirect } = useAuth0()
     return (
         <>
+        {/* {location.pathname === '/admin' && loginWithRedirect() } */}
             <h1 className='mt-40 font-extrabold text-4xl text-center uppercase'> Administrador</h1>
             <div className='mx-auto  flex justify-center py-5'>
                 <Link className='text-sky-500  text-2xl ' to={'/admin/nuevoproducto'}>

@@ -17,7 +17,7 @@ function Navbar() {
           <div className="flex items-center relative">
 
             {/* LOGO */}
-            <span className="mr-1">
+            <span className="mr-1 rounded-xl">
               <img className='h-12 w-12' src={Logo} alt='logo' />
             </span>
             <p className=' text-xl font-semibold uppercase cursor-pointer text-white'> Piscium - SRL</p>

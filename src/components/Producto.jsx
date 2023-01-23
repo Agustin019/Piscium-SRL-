@@ -9,14 +9,14 @@ function Producto({ producto, eliminarProducto }) {
 
 
   return (
-    <tr className='border-b'>
-      <td className='p-4'>
-        <p className='text-lg sm:text-xl font-semibold text-center'> {nombre} </p>
+    <tr className=' border-b-2 border-gray-400'>
+      <td className=''>
+        <p className='text-sm sm:text-xl font-semibold text-center'> {nombre} </p>
       </td>
-      <td className='p-4'>
+      <td className=''>
         <p className='text-lg sm:text-xl font-semibold text-center'> ${precio} </p>
       </td>
-      <td className='p-4 flex '>
+      <td className=' flex '>
         <div className='flex flex-col w-full justify-end'>
           <p className='text-lg sm:text-xl font-semibold text-center '> ${precioxmayor} </p>
           <p className='text-sm sm:text-lg font-semibold text-center'>({aclaracion})</p>

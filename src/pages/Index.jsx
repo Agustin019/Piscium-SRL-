@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from "../data/firebaseConfig";
 import { async } from '@firebase/util'
+import { useAuth0 } from '@auth0/auth0-react'
 
 import Producto from '../components/Producto';
 
@@ -31,6 +32,8 @@ function Index() {
     producto.categoria === filtrarProductos
   ))
 
+  const { loginWithRedirect } = useAuth0()
+
   return (
     <>
       {/* Pantalla de inicio */}
@@ -42,6 +45,7 @@ function Index() {
               type="button"
               value="Ver productos"
               className=' px-4 py-2 bg-sky-500 text-white font-semibold uppercase rounded-md shadow'
+              //onClick={() => loginWithRedirect()}
             />
           </div>
         </div>
