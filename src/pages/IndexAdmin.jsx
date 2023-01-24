@@ -78,7 +78,7 @@ function IndexAdmin() {
                         <option value="Galletitas y Tostadas">Galletitas y Tostadas (Risky)</option>
                         <option value="Jugos de Arandanos">Jugos de Arandanos</option>
                         <option value="Copetin">Copetin</option>
-                        <option value="Bebidas Alcoholicas">Bebidas Alcoholicas</option>
+                        <option value="Bebidas Alcoholicas">Bebidas </option>
                     </select>
                 </div>
 

@@ -39,11 +39,10 @@ function Index() {
         <div className=' bg-black bg-opacity-50 h-screen '>
           <h1 className='font-bold text-4xl sm:text-6xl text-center text-white uppercase pt-56 sm:pt-40'> Piscium - srl</h1>
           <div className='mx-auto w-52 flex justify-center py-5'>
-            <input
-              type="button"
-              value="Ver productos"
+            <a
+              href='#tabla'
               className=' px-4 py-2 bg-sky-500 text-white font-semibold uppercase rounded-md shadow'
-            />
+            >Ver Listado</a>
           </div>
         </div>
       </div>
@@ -51,9 +50,9 @@ function Index() {
         <a href='https://wa.me/5492236895769'><img src="https://i.ibb.co/mN1XmjG/icon-wsp.png" alt="Imagen Icono de whatsApp" /></a>
       </div>
 
-      <div className='mx-auto my-20 px-5 flex flex-col items-start sm:items-center gap-y-5'>
+      <div id='tabla' className='mx-auto my-20 px-5 flex flex-col items-start sm:items-center gap-y-5'>
         <p className='text-2xl font-bold text-center'>Filtrar Productos</p>
-        <div>
+        <div >
           <label
             className="text-gray-800 "
             htmlFor="categoria"
@@ -78,7 +77,7 @@ function Index() {
             <option value="Galletitas y Tostadas">Galletitas y Tostadas (Risky)</option>
             <option value="Jugos de Arandanos">Jugos de Arandanos</option>
             <option value="Copetin">Copetin</option>
-            <option value="Bebidas Alcoholicas">Bebidas Alcoholicas</option>
+            <option value="Bebidas Alcoholicas">Bebidas </option>
           </select>
         </div>
 
@@ -86,7 +85,7 @@ function Index() {
           {filtrarProductos}
         </p>
       </div>
-      <table className='w-full bg-white shadow mt-5 table-auto'>
+      <table  className='w-full bg-white shadow mt-5 table-auto'>
         <thead className='bg-blue-800 text-white h-10'>
           <tr className=''>
             <th className=''>Nombre</th>

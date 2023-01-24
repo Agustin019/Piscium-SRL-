@@ -10,7 +10,7 @@ import IndexAdmin from './pages/IndexAdmin';
 import NuevoProducto, { action as nuevoProductoAction } from './components/NuevoProducto';
 import ErrorPage from './components/ErrorPage';
 import EditarProducto ,{ loader as editarProductoLoader, action as editarProductoAction }from './components/EditarProducto';
-
+import Nosotros from './pages/Nosotros';
 
 const router = createBrowserRouter ([
 
@@ -25,7 +25,7 @@ const router = createBrowserRouter ([
       },
       {
         path:'/nosotros',
-        element: <h2 className='font-bold text-4xl text-gray-700'>Nosotros</h2>,
+        element: <Nosotros/>,
         errorElement:<ErrorPage/>
       },
       {
