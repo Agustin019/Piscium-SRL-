@@ -11,7 +11,7 @@ import NuevoProducto, { action as nuevoProductoAction } from './components/Nuevo
 import ErrorPage from './components/ErrorPage';
 import EditarProducto ,{ loader as editarProductoLoader, action as editarProductoAction }from './components/EditarProducto';
 import Nosotros from './pages/Nosotros';
-
+import ListadoDeProductos from './pages/ListadoDeProductos';
 const router = createBrowserRouter ([
 
   {
@@ -30,7 +30,7 @@ const router = createBrowserRouter ([
       },
       {
         path :'/productos',
-        element: <p className='font-bold text-6xl text-sky-700'> Aca se van a mostrar todos los productos</p>,
+        element: <ListadoDeProductos/>,
         errorElement:<ErrorPage/>
       }
     ]
