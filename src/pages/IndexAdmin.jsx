@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
-import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore'
+import { collection, getDocs, deleteDoc, doc, orderBy } from 'firebase/firestore'
 import { db } from "../data/firebaseConfig";
 
 import Producto from '../components/Producto';
@@ -14,7 +14,7 @@ function IndexAdmin() {
     const [productos, setProductos] = useState([])
 
     // DB Collection
-    const productosCollection = collection(db, 'productos')
+    const productosCollection = collection(db, 'productos', orderBy("nombre"))
 
     const obtenerProductos = async () => {
         const data = await getDocs(productosCollection)
