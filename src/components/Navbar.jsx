@@ -1,14 +1,9 @@
-import { Link, useLocation, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import Logo from '../img/logo-tonga.jpg'
-
-
-
+import NavbarLinks from './NavbarLinks';
 
 function Navbar() {
   let [open, setOpen] = useState(false);
-  const location = useLocation()
-  const params = useParams()
 
   return (
     <>
@@ -34,60 +29,7 @@ function Navbar() {
               left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-300 ease-in 
               ${open ? 'top-20 ' : 'top-[-490px]'}`}>
 
-
-
-            { // Solamente se muestran en el panel de administracion
-              location.pathname === '/admin' || 
-              location.pathname === '/admin/nuevoproducto'||
-              location.pathname == `/admin/${params.productoId}/editar`
-                ? (
-                  <>
-                    <li className='md:ml-8 text-sm md:my-0 my-7' >
-                      <Link
-                        to='/'
-                        className={`${location.pathname === '/' ? 'text-gray-500' : 'text-white'} uppercase hover:text-gray-500 duration-500 font-semibold `}
-                      >Inicio</Link>
-                    </li>
-
-                    <li className='md:ml-8 text-sm md:my-0 my-7' >
-                      <Link
-                        to='/admin'
-                        className={`${location.pathname === '/admin' ? 'text-gray-500' : 'text-white'} uppercase hover:text-gray-500 duration-500 font-semibold `}>
-                        Administrador</Link>
-                    </li>
-
-                    <li className='md:ml-8 text-sm md:my-0 my-7' >
-                      <Link
-                        to='/admin/nuevoproducto'
-                        className={`${location.pathname === '/admin/nuevoproducto' ? 'text-gray-500' : 'text-white'} uppercase hover:text-gray-500 duration-500 font-semibold `}>
-                        Nuevo Producto</Link>
-                    </li>
-                  </>
-                )
-                : (
-                  <>
-                    <li className='md:ml-8 text-sm md:my-0 my-7' >
-                      <Link
-                        to='/'
-                        className={`${location.pathname === '/' ? 'text-gray-500' : 'text-white'} uppercase hover:text-gray-500 duration-500 font-semibold `}
-                      >Inicio</Link>
-                    </li>
-                    <li className='md:ml-8 text-sm md:my-0 my-7' >
-                      <Link
-                        to='/productos'
-                        className={`${location.pathname === '/productos' ? 'text-gray-500' : 'text-white'} uppercase hover:text-gray-500 duration-500 font-semibold `}>
-                        Ver Productos</Link>
-                    </li>
-                    <li className='md:ml-8 text-sm md:my-0 my-7' >
-                      <Link
-                        to='/nosotros'
-                        className={`${location.pathname === '/nosotros' ? 'text-gray-500' : 'text-white'} uppercase hover:text-gray-500 duration-500 font-semibold `}>
-                        Nosotros</Link>
-                    </li>
-                  </>
-                )
-
-            }
+            <NavbarLinks/>
           </ul>
 
         </div>

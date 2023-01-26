@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav {
+  @apply relative font-normal text-white uppercase inline-block py-[2px] px-2;
+}
+.nav::after {
+  @apply content-[''] bg-sky-500 h-[3px] w-[0%] left-0 -bottom-[5px] rounded-xl absolute duration-300;
+}
+.nav:hover::after {
+  @apply w-[100%];
+}
+
+.li-navbar{
+    @apply md:ml-8 text-sm md:my-0 my-7;
+}
+
+.nav-activo{
+    @apply   relative font-normal text-white uppercase inline-block py-[2px] px-2;
+}
+
+.nav-activo::after{
+    @apply content-[''] bg-sky-500 text-white h-[2px] w-[100%] left-0 -bottom-[5px] rounded-xl absolute duration-300;
+}

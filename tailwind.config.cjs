@@ -8,6 +8,9 @@ module.exports = {
     extend: {
       backgroundImage:{
         'frutos':'url(https://i.ibb.co/Qm3dDn2/fondo-frutos-secos.jpg)'
+      },
+      fontFamily:{
+        'roboto':['Roboto','sans-serif']
       }
     },
   },
