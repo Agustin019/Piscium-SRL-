@@ -1,18 +1,17 @@
 import { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, orderBy, query, deleteDoc, doc } from 'firebase/firestore'
 import { db } from "../data/firebaseConfig";
-// import { async } from '@firebase/util'
-// import { Link } from 'react-router-dom';
 import Producto from '../components/Producto';
+import categorias from '../utils/categorias';
 
 function Tabla() {
     const [productos, setProductos] = useState([])
     const [filtrarProductos, setFiltrarProductos] = useState('')
   
-    const productosCollection = collection(db, 'productos')
+    const q = query(collection(db, "productos"), orderBy('nombre'))
   
     const obtenerProductos = async () => {
-      const data = await getDocs(productosCollection)
+      const data = await getDocs(q)
   
       setProductos(
         data.docs.map(doc => ({ ...doc.data(), id: doc.id }))
@@ -22,6 +21,12 @@ function Tabla() {
     useEffect(() => {
       obtenerProductos()
     }, [])
+    
+    const eliminarProducto = async (id) => {
+        const productDoc = doc(db, 'productos',id)
+        await deleteDoc(productDoc)
+        obtenerProductos()
+    }
   
     const filtrar = productos.filter(producto => (
       producto.categoria === filtrarProductos
@@ -42,20 +47,11 @@ function Tabla() {
             onChange={(e) => setFiltrarProductos(e.target.value)}
           >
             <option value="">Todas las Categorias</option>
-            <option value="Condimentos">Condimentos</option>
-            <option value="Frutos Secos">Frutos secos y Frutas secas</option>
-            <option value="granolas">Granolas</option>
-            <option value="Cereales">Cereales</option>
-            <option value="Almohaditas">Almohaditas</option>
-            <option value="Semillas">Semillas</option>
-            <option value="Avenas">Avenas</option>
-            <option value="Harinas y Feculas">Harinas y Feculas</option>
-            <option value="Reposteria y chocolateria">Reposteria y chocolateria</option>
-            <option value="Budines">Budines</option>
-            <option value="Galletitas y Tostadas">Galletitas y Tostadas (Risky)</option>
-            <option value="Jugos de Arandanos">Jugos de Arandanos</option>
-            <option value="Copetin">Copetin</option>
-            <option value="Bebidas Alcoholicas">Bebidas </option>
+            {
+                categorias.map(categoria =>(
+                    <option key={categoria.nombre} value={categoria.nombre}>{categoria.nombre}</option>
+                ))
+            }
           </select>
         </div>
 
@@ -79,12 +75,14 @@ function Tabla() {
                 <Producto
                   key={producto.id}
                   producto={producto}
+                  eliminarProducto={eliminarProducto}
                 />
               )))
               : (filtrar.map(producto => (
                 <Producto
                   key={producto.id}
                   producto={producto}
+                  eliminarProducto={eliminarProducto}
                 />
               )))
           }
