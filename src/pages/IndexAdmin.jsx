@@ -14,7 +14,7 @@ function IndexAdmin() {
     const [productos, setProductos] = useState([])
 
     // DB Collection
-    const productosCollection = collection(db, 'productos', orderBy("nombre"))
+    const productosCollection = collection(db, 'productos')
 
     const obtenerProductos = async () => {
         const data = await getDocs(productosCollection)
