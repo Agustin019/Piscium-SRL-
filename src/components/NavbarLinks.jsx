@@ -16,7 +16,7 @@ function NavbarLinks() {
                                 <Link
                                     to='/'
                                     className={`${location.pathname === '/' ? 'nav-activo' : 'nav'} `}
-                                >Inicio</Link>
+                                    >Inicio</Link>
                             </li>
 
                             <li className='li-navbar' >

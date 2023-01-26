@@ -1,16 +1,13 @@
 import Tabla from "../components/tabla"
 import { Link } from "react-router-dom"
 import 'animate.css'
-function Index() {
-
- 
-
+function Index() { 
   return (
     <>
       {/* Pantalla de inicio */}
       <div className=' bg-frutos  h-screen bg-cover '>
         <div className=' bg-black bg-opacity-50 h-screen '>
-          <h1 className='font-bold text-4xl sm:text-6xl text-center text-white uppercase pt-56 sm:pt-40 animate__animated animate__bounceInDown'> Piscium - srl</h1>
+          <h1 className='font-bold text-4xl sm:text-6xl text-center text-white uppercase pt-56 sm:pt-40 '> Piscium - srl</h1>
           <div className='mx-auto w-52 flex justify-center py-5'>
             <Link
               to='/productos'

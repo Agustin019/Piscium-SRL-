@@ -7,7 +7,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="shadow-md w-full  bg-black z-10">
+      <div className="shadow-md w-full  bg-black ">
         <div className="md:flex items-center justify-between  md:py-4 py-6 md:px-10 px-7">
           <div className="flex items-center relative">
 

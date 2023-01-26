@@ -12,14 +12,14 @@
   @apply w-[100%];
 }
 
-.li-navbar{
-    @apply md:ml-8 text-sm md:my-0 my-7;
-}
-
 .nav-activo{
-    @apply   relative font-normal text-white uppercase inline-block py-[2px] px-2;
+  @apply   relative font-normal text-white uppercase inline-block py-[2px] px-2;
 }
 
 .nav-activo::after{
-    @apply content-[''] bg-sky-500 text-white h-[2px] w-[100%] left-0 -bottom-[5px] rounded-xl absolute duration-300;
+  @apply content-[''] bg-sky-500 text-white h-[2px] w-[100%] left-0 -bottom-[5px] rounded-xl absolute duration-300;
+}
+
+.li-navbar{
+  @apply md:ml-8 text-sm md:my-0 my-7;
 }
