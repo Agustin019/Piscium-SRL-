@@ -5,7 +5,7 @@ function Producto({ producto, eliminarProducto }) {
   const location = useLocation()
   const navigate = useNavigate()
 
-  const { nombre, precio, precioxmayor, aclaracion, id } = producto
+  const { nombre, precio, preciopor, precioxmayor, aclaracion, id } = producto
 
 
   return (
@@ -13,8 +13,11 @@ function Producto({ producto, eliminarProducto }) {
       <td className='p-4'>
         <p className='text-lg sm:text-xl font-semibold text-center'> {nombre} </p>
       </td>
-      <td className='p-4'>
-        <p className='text-lg sm:text-xl font-semibold text-center'> ${precio} </p>
+      <td className='p-4 '>
+        <div className='flex flex-col  justify-center'>
+          <p className='text-lg sm:text-xl font-semibold text-center'> ${precio} </p>
+          <p className='text-sm sm:text-lg font-semibold text-center'> ({preciopor}) </p>
+        </div>
       </td>
       <td className='p-4 flex '>
         <div className='flex flex-col w-full justify-end'>

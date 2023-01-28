@@ -29,6 +29,7 @@ export async function action({request}){
     await addDoc(productsCollection,{
         nombre: datos.nombre,
         precio: datos.precio,
+        preciopor:datos.preciopor,
         precioxmayor: datos.precioxmayor,
         aclaracion: datos.aclaracion,
         categoria: datos.categoria

@@ -1,6 +1,7 @@
 import React from 'react'
+import categorias from '../utils/categorias';
 
-function Formulario({producto}) {
+function Formulario({ producto }) {
     // Para reutilizar el formulario se usa un "optional chaining" para que en caso de que "producto" tenga algo, pueda acceder a su propiedad
     return (
 
@@ -33,6 +34,22 @@ function Formulario({producto}) {
                     name="precio"
                     defaultValue={producto?.precio}
                 />
+            </div>
+            <div className="mb-4">
+                <label
+                    className="text-gray-800"
+                    htmlFor="preciopor"
+                >Precio Por:</label>
+               <select 
+                name="preciopor" 
+                id="preciopor"
+                className='w-full py-3 text-center'
+                defaultValue={producto?.preciopor}
+                >
+                    <option value="">-- Seleccione una opcion --</option>
+                    <option value="Unidad">Unidad</option>
+                    <option value="Kg">Kg</option>
+               </select>
             </div>
 
             <div className="mb-4">
@@ -72,24 +89,15 @@ function Formulario({producto}) {
                 <select
                     name="categoria"
                     id="categoria"
-                    className='w-full py-3'
+                    className='w-full py-3 text-center'
                     defaultValue={producto?.categoria}
                 >
-                    <option value="">Seleccione la Categoria</option>
-                    <option value="Condimentos">Condimentos</option>
-                    <option value="Frutos Secos">Frutos secos y Frutas secas</option>
-                    <option value="granolas">Granolas</option>
-                    <option value="Cereales">Cereales</option>
-                    <option value="Almohaditas">Almohaditas</option>
-                    <option value="Semillas">Semillas</option>
-                    <option value="Avenas">Avenas</option>
-                    <option value="Harinas y Feculas">Harinas y Feculas</option>
-                    <option value="Reposteria y chocolateria">Reposteria y chocolateria</option>
-                    <option value="Budines">Budines</option>
-                    <option value="Galletitas y Tostadas">Galletitas y Tostadas (Risky)</option>
-                    <option value="Jugos de Arandanos">Jugos de Arandanos</option>
-                    <option value="Copetin">Copetin</option>
-                    <option value="Bebidas Alcoholicas">Bebidas Alcoholicas</option>
+                    <option value="">-- Seleccione la Categoria --</option>
+                    {
+                        categorias.map(categoria => (
+                            <option key={categoria.nombre} value={categoria.nombre}>{categoria.nombre}</option>
+                        ))
+                    }
                 </select>
 
             </div>
