@@ -10,19 +10,19 @@ function Producto({ producto, eliminarProducto }) {
 
   return (
     <tr className='border-b'>
-      <td className='p-4'>
-        <p className='text-lg sm:text-xl font-semibold text-center'> {nombre} </p>
+      <td className='p-3'>
+        <p className='text-sm sm:text-xl font-semibold text-center'> {nombre} </p>
       </td>
-      <td className='p-4 '>
+      <td className='p-3 '>
         <div className='flex flex-col  justify-center'>
-          <p className='text-lg sm:text-xl font-semibold text-center'> ${precio} </p>
-          <p className='text-sm sm:text-lg font-semibold text-center'> ({preciopor}) </p>
+          <p className='text-sm sm:text-xl font-semibold text-center'> ${precio} </p>
+          <p className='text-xs sm:text-lg font-semibold text-center'> ({preciopor}) </p>
         </div>
       </td>
-      <td className='p-4 flex '>
+      <td className='p-3 flex '>
         <div className='flex flex-col w-full justify-end'>
-          <p className='text-lg sm:text-xl font-semibold text-center '> ${precioxmayor} </p>
-          <p className='text-sm sm:text-lg font-semibold text-center'>({aclaracion})</p>
+          <p className='text-sm sm:text-xl font-semibold text-center '> ${precioxmayor} </p>
+          <p className='text-xs sm:text-lg font-semibold text-center'>({aclaracion})</p>
         </div>
         {
           // Solamente se muestra en el panel de administracion
