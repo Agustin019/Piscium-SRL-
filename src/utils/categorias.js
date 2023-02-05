@@ -1,17 +1,17 @@
  const categorias = [
+    {nombre: 'Almohaditas y Cereales'},
+    {nombre: 'Bebidas'},
     {nombre: 'Condimentos'},
-    {nombre: 'Frutos Secos'},
-    {nombre: 'Granolas'},
-    {nombre: 'Cereales'},
-    {nombre: 'Almohaditas'},
-    {nombre: 'Semillas'},
-    {nombre: 'Avenas'},
-    {nombre: 'Harinas y Feculas'},
-    {nombre: 'Reposteria y chocolateria'},
-    {nombre: 'Galletitas y Tostadas'},
-    {nombre: 'Jugos de Arandanos'},
     {nombre: 'Copetin'},
-    {nombre: 'Bebidas Alcoholicas'}
+    {nombre: 'Esencias'},
+    {nombre: 'Frutos Secos'},
+    {nombre: 'Galletitas y Tostadas'},
+    {nombre: 'Granolas'},
+    {nombre: 'Harinas - Feculas - Avenas'},
+    {nombre: 'Jugos de Arandanos'},
+    {nombre: 'Legumbres'},
+    {nombre: 'Reposteria y chocolateria'},
+    {nombre: 'Semillas'}
 ]
 
 export default categorias
