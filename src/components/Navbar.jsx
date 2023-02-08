@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Logo from '../img/logo-tonga.jpg'
+import Logo from '../img/favicon.ico'
 import NavbarLinks from './NavbarLinks';
 
 function Navbar() {
