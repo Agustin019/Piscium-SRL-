@@ -11,7 +11,9 @@
     {nombre: 'Jugos de Arandanos'},
     {nombre: 'Legumbres'},
     {nombre: 'Reposteria y chocolateria'},
-    {nombre: 'Semillas'}
+    {nombre: 'Semillas'},
+    {nombre: 'Otros Productos'}
+
 ]
 
 export default categorias

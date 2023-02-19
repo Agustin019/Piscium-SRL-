@@ -3,19 +3,24 @@ import { collection, getDocs, orderBy, query, deleteDoc, doc } from 'firebase/fi
 import { db } from "../data/firebaseConfig";
 import Producto from '../components/Producto';
 import categorias from '../utils/categorias';
+import { ClipLoader } from 'react-spinners'
 
 function Tabla() {
   const [productos, setProductos] = useState([])
   const [filtrarProductos, setFiltrarProductos] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const q = query(collection(db, "productos"), orderBy('nombre'))
 
   const obtenerProductos = async () => {
+    setLoading(true)
+
     const data = await getDocs(q)
 
     setProductos(
       data.docs.map(doc => ({ ...doc.data(), id: doc.id }))
     )
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -27,13 +32,13 @@ function Tabla() {
     await deleteDoc(productDoc)
     obtenerProductos()
   }
-
+  
   const filtrar = productos.filter(producto => (
     producto.categoria === filtrarProductos
   ))
   return (
     <>
-      <div  className='bg-white rounded py-4 mx-auto my-20 px-5 flex flex-col items-start sm:w-1/4 sm:items-center gap-y-5'>
+      <div className='bg-white rounded py-4 mx-auto my-20 px-5 flex flex-col items-start sm:w-1/4 sm:items-center gap-y-5'>
         <p className='text-2xl font-bold text-center uppercase'>Filtrar Productos</p>
         <div >
           <label
@@ -56,41 +61,51 @@ function Tabla() {
         </div>
 
         {
-            filtrarProductos &&
+          filtrarProductos &&
           <p className='text-2xl font-bold '>
             Filtrar por: {filtrarProductos}
           </p>
         }
       </div>
-      <table className='w-full bg-white shadow mt-5 table-auto'>
-        <thead className='bg-blue-800 text-white h-10'>
-          <tr className=''>
-            <th className=''>Nombre</th>
-            <th className=''>Precio</th>
-            <th className=''>X Mayor</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            filtrarProductos === ''
-              ?
-              (productos.map(producto => (
-                <Producto
-                  key={producto.id}
-                  producto={producto}
-                  eliminarProducto={eliminarProducto}
-                />
-              )))
-              : (filtrar.map(producto => (
-                <Producto
-                  key={producto.id}
-                  producto={producto}
-                  eliminarProducto={eliminarProducto}
-                />
-              )))
-          }
-        </tbody>
-      </table>
+
+      <div className='w-full flex justify-center'>
+        {<ClipLoader loading={loading} />}
+      </div>
+      {
+        !loading ?
+          (<table className='w-full bg-white shadow mt-5 table-auto'>
+            <thead className='bg-blue-800 text-white h-10'>
+              <tr className=''>
+                <th className=''>Nombre</th>
+                <th className=''>Precio</th>
+                <th className=''>X Mayor</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              {
+                filtrarProductos === ''
+                  ?
+                  (productos.map(producto => (
+                    <Producto
+                      key={producto.id}
+                      producto={producto}
+                      eliminarProducto={eliminarProducto}
+                    />
+                  )))
+                  : (filtrar.map(producto => (
+                    <Producto
+                      key={producto.id}
+                      producto={producto}
+                      eliminarProducto={eliminarProducto}
+                    />
+                  )))
+              }
+            </tbody>
+          </table>) : ''
+
+      }
     </>
   )
 }
